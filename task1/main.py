@@ -1,6 +1,6 @@
 
 def caching_fibonacci():
-    cache = {}  # Створюємо пустий кеш
+    cache = {}
 
     def fibonacci(n):
         if n <= 1:
