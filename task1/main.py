@@ -1,6 +1,6 @@
 
 def caching_fibonacci():
-    cache = {}
+    cache = {} # cache initialization
 
     def fibonacci(n):
         if n <= 1:
@@ -9,9 +9,9 @@ def caching_fibonacci():
         if n in cache:
             return cache[n]
         
-        result = fibonacci(n - 1) + fibonacci(n - 2)
-        cache[n] = result
-        return result
+        # recursive call for 2 previous numbers and save sum in cache
+        cache[n] = fibonacci(n - 1) + fibonacci(n - 2)
+        return cache[n]
 
     return fibonacci
 
