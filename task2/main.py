@@ -1,16 +1,17 @@
 import re
+from decimal import Decimal
 from typing import Callable
 
 def generator_numbers(text: str):
     # regexp for finding float numbers separated by spaces
     pattern = r'\b\d+\.\d+\b'
     for match in re.finditer(pattern, text):
-        yield float(match.group())
+        yield Decimal(match.group())
 
 def sum_profit(text: str, func: Callable):
     # Usage of generator_numbers for sum calculation
     numbers_generator = func(text)
-    return sum(numbers_generator)
+    return sum(numbers_generator, Decimal(0))
 
 def main():
     # sum_profit usage example
